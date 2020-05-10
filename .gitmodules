@@ -1,4 +1,4 @@
-[submodule "docs"]
-	path = docs
-	url = http://github.com/cambrian/accumulator.git
-	branch = gh-pages
+# [submodule "docs"]
+# 	path = docs
+# 	url = http://github.com/cambrian/accumulator.git
+# 	branch = gh-pages

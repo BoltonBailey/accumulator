@@ -49,11 +49,11 @@ impl<G: UnknownOrderGroup, T: Hash> Clone for Accumulator<G, T> {
   }
 }
 
-#[derive(Clone, Debug, Eq, Hash, PartialEq)]
+#[derive(Clone, Debug, Eq, Hash, PartialEq, Serialize, Deserialize)]
 /// A witness to one or more values in an accumulator, represented as an accumulator.
 pub struct Witness<G: UnknownOrderGroup, T: Hash>(pub Accumulator<G, T>);
 
-#[derive(Clone, Debug, Eq, Hash, PartialEq)]
+#[derive(Clone, Debug, Eq, Hash, PartialEq, Serialize, Deserialize)]
 /// A succinct proof of membership (some element is in some accumulator).
 pub struct MembershipProof<G: UnknownOrderGroup, T: Hash> {
   /// The witness for the element in question.
@@ -61,7 +61,7 @@ pub struct MembershipProof<G: UnknownOrderGroup, T: Hash> {
   proof: Poe<G>,
 }
 
-#[derive(Clone, Debug, Eq, Hash, PartialEq)]
+#[derive(Clone, Debug, Eq, Hash, PartialEq, Serialize, Deserialize)]
 /// A succinct proof of nonmembership (some element is not in some accumulator).
 pub struct NonmembershipProof<G: UnknownOrderGroup, T> {
   phantom: PhantomData<*const T>,

@@ -4,6 +4,7 @@ use crate::hash::hash_to_prime;
 use crate::proof::{Poe, Poke2};
 use crate::util::{divide_and_conquer, int, prime_hash_product, shamir_trick};
 use rug::Integer;
+use serde::{Deserialize, Serialize};
 use std::hash::Hash;
 use std::marker::PhantomData;
 
@@ -29,7 +30,7 @@ pub enum AccError {
 // See https://doc.rust-lang.org/std/marker/struct.PhantomData.html#ownership-and-the-drop-check
 // for recommendations regarding phantom types. Note that we disregard the suggestion to use a
 // const reference in the phantom type parameter, which causes issues for the `Send` trait.
-#[derive(Debug, Eq, Hash, PartialEq)]
+#[derive(Debug, Eq, Hash, PartialEq, Serialize, Deserialize)]
 /// A cryptographic accumulator. Wraps a single unknown-order group element and phantom data
 /// representing the type `T` being hashed-to-prime and accumulated.
 pub struct Accumulator<G: UnknownOrderGroup, T> {

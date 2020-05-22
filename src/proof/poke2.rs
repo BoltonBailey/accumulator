@@ -3,9 +3,10 @@
 use crate::group::UnknownOrderGroup;
 use crate::hash::{blake2b, hash_to_prime};
 use rug::Integer;
+use serde::{Deserialize, Serialize};
 
 #[allow(non_snake_case)]
-#[derive(PartialEq, Eq, Hash, Clone, Debug)]
+#[derive(PartialEq, Eq, Hash, Clone, Debug, Serialize, Deserialize)]
 /// Struct for NI-PoKE2.
 pub struct Poke2<G: UnknownOrderGroup> {
   z: G::Elem,

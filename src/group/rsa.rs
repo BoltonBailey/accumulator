@@ -4,7 +4,6 @@ use crate::util::{int, TypeRep};
 use rug::Integer;
 use serde::{Deserialize, Serialize};
 use std::str::FromStr;
-
 #[allow(clippy::module_name_repetitions)]
 #[derive(Clone, Debug, PartialEq, Eq, Hash, Serialize, Deserialize)]
 /// RSA-2048 group implementation. Modulus taken from
@@ -27,6 +26,7 @@ lazy_static! {
   pub static ref RSA2048_MODULUS: Integer = Integer::from_str(RSA2048_MODULUS_DECIMAL).unwrap();
   pub static ref HALF_MODULUS: Integer = RSA2048_MODULUS.clone() / 2;
 }
+// Surya is able to edit
 
 #[allow(clippy::module_name_repetitions)]
 #[derive(Clone, Debug, PartialEq, Eq, Hash, Serialize, Deserialize)]
